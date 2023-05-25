@@ -84,7 +84,7 @@ export class AppService {
         type: type,
       };
     }
-    const resEntity = await this.jobsRepository.findAll({
+    const resEntity = await this.jobsRepository.findAndCountAll({
       where,
       ...pagination(query),
       attributes: [

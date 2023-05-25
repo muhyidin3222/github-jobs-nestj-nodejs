@@ -31,7 +31,7 @@ export class AppController {
   @Get('/jobs')
   async jobs(@Query() query: ParamGet): Promise<any> {
     const resService = await this.appService.getJobList(query);
-    return responeSuccess({ data: resService });
+    return responeSuccess({ data: resService.rows, total: resService.count });
   }
 
   @UseGuards(RolesGuard)
